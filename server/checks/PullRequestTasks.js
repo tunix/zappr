@@ -54,6 +54,8 @@ export default class PullRequestTasks extends Check {
     const repoName = repository.name
     const fullName = repository.full_name
 
+    debug(`Payload: ${hookPayload}`);
+
     try {
       // TODO: configuration settings
 
