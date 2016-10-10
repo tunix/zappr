@@ -1,5 +1,6 @@
 import Check, { getPayloadFn } from './Check'
 import { PULL_REQUEST } from '../model/GithubEvents'
+import { logger } from '../../common/debug'
 
 const CHECK_TYPE = 'pullrequesttasks'
 const CONTEXT = 'zappr/pr/tasks'
@@ -52,6 +53,8 @@ export default class PullRequestTasks extends Check {
     const repoOwner = repository.owner.login
     const repoName = repository.name
     const fullName = repository.full_name
+
+    debug(`Payload: ${hookPayload}`);
 
     try {
       // TODO: configuration settings
